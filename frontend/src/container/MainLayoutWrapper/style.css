@@ -1,0 +1,17 @@
+* {
+    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+
+#inner-container {
+    background-color: white;
+}
+
+#outer-container {
+    background-color: #b9d6e7;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h2 {
+    padding: 2% 2% 0 2%;
+}

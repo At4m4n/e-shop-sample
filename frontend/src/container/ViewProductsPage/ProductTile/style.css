@@ -1,0 +1,13 @@
+#card-container {
+  margin: 20px;
+  border: 1px solid #b9d6e7;
+}
+
+.stick-right {
+  float: right;
+}
+
+.btn {
+  width: 100%;
+  bottom: 10px;
+}
