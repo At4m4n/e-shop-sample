@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/e_shop
     username: root
     password: password
+    initialization-mode: always
   jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
+    hibernate.ddl-auto: create-drop
+    open-in-view: false
