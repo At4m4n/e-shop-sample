@@ -2,11 +2,15 @@ import {ACTION} from '../../constants/commonConstants';
 import {createRequestSuccessFailure} from '../../../utils';
 
 const deepFreeze = require('deep-freeze');
-const ENTITY = 'PRODUCT';
+const PRODUCT = 'PRODUCT';
+const CHARGE = 'PRODUCT_CHARGE';
 
 export const ProductActionTypes = deepFreeze({
   fetch: {
-    ...createRequestSuccessFailure(ACTION.FETCH, ENTITY),
+    ...createRequestSuccessFailure(ACTION.FETCH, PRODUCT),
+  },
+  createCharge: {
+    ...createRequestSuccessFailure(ACTION.CREATE, CHARGE),
   },
 });
 

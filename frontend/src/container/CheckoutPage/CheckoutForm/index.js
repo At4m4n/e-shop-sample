@@ -4,6 +4,7 @@ import './styles.css';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentProduct } from '../../../store/selectors/productSelectors';
 import { connect } from 'react-redux';
+import * as productActions from '../../../store/actions/productActions';
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -56,7 +57,6 @@ const CheckoutForm = (props) => {
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState(null);
   const [billingAddress, setBillingAddress] = useState({
     line1: '',
     state: '',
@@ -87,27 +87,18 @@ const CheckoutForm = (props) => {
 
     const payload = await stripe.createToken(elements.getElement(CardElement));
 
-    setProcessing(false);
+
 
     if (payload.error) {
       setError(payload.error);
     }
     else {
-      setPaymentMethod(payload.id);
+      props.charge({token: payload.token.id, amount: props.product.price});
+      setProcessing(false);
     }
   };
 
-  return paymentMethod ? (
-    <div className="Result">
-      <div className="ResultTitle" role="alert">
-        Payment successful
-      </div>
-      <div className="ResultMessage">
-        Thanks for trying Stripe Elements. No money was charged, but we
-        generated a PaymentMethod: {paymentMethod.id}
-      </div>
-    </div>
-  ) : (
+  return (
     <form className="Form" onSubmit={handleSubmit}>
       <fieldset className="FormGroup">
         <input
@@ -179,4 +170,8 @@ const mapStateToProps = createStructuredSelector({
   product: selectCurrentProduct,
 });
 
-export default connect(mapStateToProps)(CheckoutForm);
+const mapDispatchToProps = (dispatch) => ({
+  charge: (request) => dispatch(productActions.chargeProductPrice(request)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutForm);

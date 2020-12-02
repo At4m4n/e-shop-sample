@@ -3,12 +3,14 @@ import { FIND_PRODUCT_BY_ID, ProductActionTypes } from '../actions/types/product
 const initialState = {
   products: [],
   product: null,
+  charge: null,
   error: null,
 };
 
 export default function productReducer(state = initialState, action) {
   switch (action.type) {
     case ProductActionTypes.fetch.request:
+    case ProductActionTypes.createCharge.request:
       return {
         ...state,
       };
@@ -18,7 +20,14 @@ export default function productReducer(state = initialState, action) {
         products: [...action.payload],
         error: null,
       };
+      case ProductActionTypes.createCharge.success:
+      return {
+        ...state,
+        charge: action.payload,
+        error: null,
+      };
     case ProductActionTypes.fetch.failure:
+    case ProductActionTypes.createCharge.failure:
       return {
         ...state,
         error: action.payload,

@@ -12,3 +12,8 @@ export const selectCurrentProduct = createSelector(
   productStateSelector,
   (state) => state.product
 );
+
+export const selectCharge = createSelector(
+  productStateSelector,
+  (state) => state.charge
+);

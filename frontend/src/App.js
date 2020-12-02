@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { CHECKOUT_PATH, PRODUCTS_PATH, PURCHASE_SUCCESS_PATH } from './pathsConstants';
+import { CHECKOUT_PATH, PRODUCTS_PATH, PURCHASE_SUCCESS_PATH } from './constants';
 import CheckoutPage from './container/CheckoutPage';
 import PurchaseSuccessPage from './container/PurchaseSuccessPage';
 import ViewProductsPage from './container/ViewProductsPage';

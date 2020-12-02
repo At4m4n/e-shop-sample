@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import './styles.css';
 import { HOST_ADDRESS } from '../../../api/apiEndpoints';
 import history from '../../../history';
-import { CHECKOUT_PATH } from '../../../pathsConstants';
+import { CHECKOUT_PATH } from '../../../constants';
 import { connect } from 'react-redux';
 import { FIND_PRODUCT_BY_ID } from '../../../store/actions/types/productActionTypes';
 

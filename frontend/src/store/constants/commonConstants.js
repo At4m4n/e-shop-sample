@@ -8,5 +8,6 @@ export const STATE = {
 
 export const ACTION = {
   FETCH: 'FETCH',
+  CREATE: 'CREATE',
 };
 
