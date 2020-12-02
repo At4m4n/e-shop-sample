@@ -8,3 +8,5 @@ spring:
   jpa:
     hibernate.ddl-auto: create-drop
     open-in-view: false
+  stripe:
+    secret: sk_test_51HtcTCEHNNONHrbNvKLbNlc7QhW74yNcoBZphFdDEXoO3WYYZMfsiuJhowXuowqotc6jZSJY3w6LnIVDjUdfxTtO00eUCi20mR

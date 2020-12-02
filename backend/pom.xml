@@ -17,6 +17,7 @@
 
   <properties>
     <java.version>1.8</java.version>
+    <stripe.version>20.30.0</stripe.version>
   </properties>
 
   <dependencies>
@@ -28,7 +29,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>com.stripe</groupId>
+      <artifactId>stripe-java</artifactId>
+      <version>${stripe.version}</version>
+    </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
