@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import './styles.css';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentProduct } from '../../../store/selectors/productSelectors';
 import { connect } from 'react-redux';
 import * as productActions from '../../../store/actions/productActions';
+import './styles.css';
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -14,10 +14,6 @@ const CARD_OPTIONS = {
       fontWeight: 500,
       fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
       fontSize: '16px',
-      fontSmoothing: 'antialiased',
-      ':-webkit-autofill': {
-        color: '#fce883',
-      },
       '::placeholder': {
         color: '#87bbfd',
       },
@@ -57,20 +53,11 @@ const CheckoutForm = (props) => {
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
-  const [billingAddress, setBillingAddress] = useState({
-    line1: '',
-    state: '',
-    city: '',
-    postal_code: '',
-  });
-  const [billingDetails, setBillingDetails] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
 
@@ -83,11 +70,7 @@ const CheckoutForm = (props) => {
       setProcessing(true);
     }
 
-    setBillingDetails({ address: billingAddress });
-
     const payload = await stripe.createToken(elements.getElement(CardElement));
-
-
 
     if (payload.error) {
       setError(payload.error);
@@ -108,9 +91,6 @@ const CheckoutForm = (props) => {
           placeholder={'Address'}
           required={'required'}
           autoComplete={'autoComplete'}
-          onChange={(e) => {
-            setBillingAddress({ ...billingAddress, line1: e.target.value });
-          }}
         />
         <fieldset className={'FormGroup'}>
           <div className="FormRow">
@@ -121,9 +101,7 @@ const CheckoutForm = (props) => {
               placeholder={'City'}
               required={'required'}
               autoComplete={'autoComplete'}
-              onChange={(e) => {
-                setBillingAddress({ ...billingAddress, city: e.target.value });
-              }}
+              maxLength={20}
             />
             <input
               className="FormRowInput"
@@ -132,20 +110,16 @@ const CheckoutForm = (props) => {
               placeholder={'State'}
               required={'required'}
               autoComplete={'autoComplete'}
-              onChange={(e) => {
-                setBillingAddress({ ...billingAddress, state: e.target.value });
-              }}
+              maxLength={20}
             />
             <input
               className="FormRowInput"
               id={'index'}
-              type={'number'}
-              placeholder={'Index'}
+              type={'text'}
+              placeholder={'ZIP'}
               required={'required'}
               autoComplete={'autoComplete'}
-              onChange={(e) => {
-                setBillingAddress({ ...billingAddress, postal_code: e.target.value });
-              }}
+              maxLength={5}
             />
           </div>
         </fieldset>

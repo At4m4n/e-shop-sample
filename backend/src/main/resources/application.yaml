@@ -1,12 +1,12 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/e_shop
-    username: root
-    password: password
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
     initialization-mode: always
   jpa:
     hibernate.ddl-auto: create-drop
     open-in-view: false
   stripe:
-    secret: sk_test_51HtcTCEHNNONHrbNvKLbNlc7QhW74yNcoBZphFdDEXoO3WYYZMfsiuJhowXuowqotc6jZSJY3w6LnIVDjUdfxTtO00eUCi20mR
+    secret: ${STRIPE_SECRET_KEY}

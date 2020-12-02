@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { CHECKOUT_PATH, PRODUCTS_PATH, PURCHASE_SUCCESS_PATH } from './constants';
+import { CHECKOUT_PATH, PRODUCTS_PATH, SUCCESS_PATH } from './constants';
 import CheckoutPage from './container/CheckoutPage';
-import PurchaseSuccessPage from './container/PurchaseSuccessPage';
+import PurchaseSuccessPage from './container/SuccessPage';
 import ViewProductsPage from './container/ViewProductsPage';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
@@ -18,7 +18,7 @@ function App(props) {
         <Route exact path={PRODUCTS_PATH} component={ViewProductsPage}/>
         {product !== null && (<>
           <Route exact path={CHECKOUT_PATH} component={CheckoutPage}/>
-          <Route exact path={PURCHASE_SUCCESS_PATH} component={PurchaseSuccessPage}/>
+          <Route exact path={SUCCESS_PATH} component={PurchaseSuccessPage}/>
         </>)}
         {product === null && <Redirect to={PRODUCTS_PATH}/>}
       </Switch>
