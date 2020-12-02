@@ -9,3 +9,5 @@ export const ProductActionTypes = deepFreeze({
     ...createRequestSuccessFailure(ACTION.FETCH, ENTITY),
   },
 });
+
+export const FIND_PRODUCT_BY_ID = 'FIND_PRODUCT_BY_ID';

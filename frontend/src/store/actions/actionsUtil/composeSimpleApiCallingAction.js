@@ -11,7 +11,7 @@ export default function composeSimpleApiCallingAction(
     try {
       const response = await workingFunction(...args);
       dispatch(createAction(successActionType, response.data));
-      if (!!onSuccessHandler) {
+      if (!onSuccessHandler) {
         onSuccessHandler();
       }
       return response;

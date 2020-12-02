@@ -1,3 +1,3 @@
 export const PRODUCTS_PATH = '/products'
-export const PURCHASE_PATH = '/purchase'
+export const CHECKOUT_PATH = '/checkout'
 export const PURCHASE_SUCCESS_PATH = '/purchase-success'

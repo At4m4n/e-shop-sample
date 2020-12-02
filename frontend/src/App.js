@@ -1,23 +1,37 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import {
-  PRODUCTS_PATH,
-  PURCHASE_PATH,
-  PURCHASE_SUCCESS_PATH
-} from "./pathsConstants";
-import ViewProductsPage from "./container/ViewProductsPage";
-import PurchasePage from "./container/PurchasePage";
-import PurchaseSuccessPage from "./container/PurchaseSuccessPage";
+import { CHECKOUT_PATH, PRODUCTS_PATH, PURCHASE_SUCCESS_PATH } from './pathsConstants';
+import CheckoutPage from './container/CheckoutPage';
+import PurchaseSuccessPage from './container/PurchaseSuccessPage';
+import ViewProductsPage from './container/ViewProductsPage';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { selectCurrentProduct } from './store/selectors/productSelectors';
+import { createStructuredSelector } from 'reselect';
 
-function App() {
+function App(props) {
+  const { product } = props;
   return (
+    <>
       <Switch>
         <Route exact path={PRODUCTS_PATH} component={ViewProductsPage}/>
-        <Route exact path={PURCHASE_PATH} component={PurchasePage}/>
-        <Route exact path={PURCHASE_SUCCESS_PATH} component={PurchaseSuccessPage}/>
+        {product !== null && (<>
+          <Route exact path={CHECKOUT_PATH} component={CheckoutPage}/>
+          <Route exact path={PURCHASE_SUCCESS_PATH} component={PurchaseSuccessPage}/>
+        </>)}
+        {product === null && <Redirect to={PRODUCTS_PATH}/>}
       </Switch>
+    </>
   );
 }
 
-export default App;
+App.propTypes = {
+  product: PropTypes.object,
+};
+
+const mapStateToProps = createStructuredSelector({
+  product: selectCurrentProduct,
+});
+
+export default connect(mapStateToProps)(App);

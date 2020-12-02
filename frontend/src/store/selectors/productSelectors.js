@@ -7,3 +7,8 @@ export const selectAllProducts = createSelector(
     productStateSelector,
     (state) => _.map(state.products, (product) => product)
 );
+
+export const selectCurrentProduct = createSelector(
+  productStateSelector,
+  (state) => state.product
+);

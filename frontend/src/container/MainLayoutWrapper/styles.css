@@ -7,9 +7,10 @@
 }
 
 #outer-container {
-    background-color: #b9d6e7;
-    padding-left: 10%;
-    padding-right: 10%;
+    min-height: 100vh;
+    background-color: #d0dae7;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 h2 {

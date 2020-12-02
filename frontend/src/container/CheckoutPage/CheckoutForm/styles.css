@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+}
+
+input,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+}
+
+.AppWrapper {
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+.Form {
+  animation: fade 200ms ease-out;
+}
+
+.FormRow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.FormCol {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.FormRowLabel {
+  margin-left: 30px;
+  min-width: 70px;
+  color: #4e4e4e;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  padding: 11px 15px 11px 0;
+}
+
+.FormRowLabel:first-child {
+  margin-left: 0;
+}
+
+@keyframes void-animation-out {
+  0%,
+  to {
+    opacity: 1;
+  }
+}
+
+.FormRowInput:-webkit-autofill {
+  -webkit-text-fill-color: #262626;
+  transition: background-color 100000000s;
+  animation: 1ms void-animation-out;
+}
+
+.FormRowInput {
+  margin-right: 20px;
+  font-size: 16px;
+  width: 100%;
+  padding: 11px 15px 11px 0;
+  background-color: transparent;
+  border-bottom: 1px solid #c1c1c1;
+  animation: 1ms void-animation-out;
+}
+
+.FormRowInput:last-child {
+  margin-right: 0;
+}
+
+.FormRowInput::placeholder {
+  color: #87bbfd;
+  font-weight: 500;
+}
+
+.StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.StripeElement {
+  width: 100%;
+  padding: 11px 15px 11px 0;
+}
+
+.SubmitButton {
+  display: block;
+  font-size: 16px;
+  width: calc(100% - 30px);
+  height: 40px;
+  margin: 10px 15px 0;
+  background-color: #4f884f;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  will-change: transform, background-color, box-shadow;
+}
+
+.SubmitButton:active {
+  background-color: #69bc69;
+  transform: scale(0.99);
+}
+
+.SubmitButton.SubmitButton--error {
+  transform: translateY(15px);
+}
+
+.SubmitButton.SubmitButton--error:active {
+  transform: scale(0.99) translateY(15px);
+}
+
+.SubmitButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background-color: #7795f8;
+  box-shadow: none;
+}
+
+.ErrorMessage {
+  color: crimson;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+  font-size: 13px;
+  margin-top: 0;
+  width: 100%;
+  opacity: 0;
+  animation: fade 150ms ease-out;
+  animation-delay: 50ms;
+  animation-fill-mode: forwards;
+  will-change: opacity, transform;
+}
+
+.ErrorMessage svg {
+  margin-right: 10px;
+}
+
+.Result {
+  margin-top: 50px;
+  text-align: center;
+  animation: fade 200ms ease-out;
+}
+
+.ResultTitle {
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.ResultMessage {
+  color: #9cdbff;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 25px;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+.ResetButton {
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+form {
+  max-width: 800px;
+  margin: 150px auto;
+}
+
+.card-input {
+  border-bottom: 1px solid #c1c1c1;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
