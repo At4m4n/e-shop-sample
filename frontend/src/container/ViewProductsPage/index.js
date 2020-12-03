@@ -4,8 +4,8 @@ import { CardGroup, Container, Row } from 'react-bootstrap';
 import ProductTile from './ProductTile';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import * as productActions from '../../store/actions/productActions';
-import { selectAllProducts } from '../../store/selectors/productSelectors';
+import * as productActions from '../../actions/productActions';
+import { selectAllProducts } from '../../selectors/productSelectors';
 
 function ViewProductsPage(props) {
 

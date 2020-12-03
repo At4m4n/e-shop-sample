@@ -1,5 +1,5 @@
 import {get} from 'lodash';
-import {STATE} from '../constants/commonConstants';
+import {STATE} from '../constants/actionConstants';
 import {ProductActionTypes} from '../actions/types/productActionTypes';
 
 const GENERAL_ERROR = 'Something went wrong. Please try again later.';

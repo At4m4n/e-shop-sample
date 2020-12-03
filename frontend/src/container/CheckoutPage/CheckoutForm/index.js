@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { createStructuredSelector } from 'reselect';
-import { selectCurrentProduct } from '../../../store/selectors/productSelectors';
+import { selectCurrentProduct } from '../../../selectors/productSelectors';
 import { connect } from 'react-redux';
-import * as productActions from '../../../store/actions/productActions';
+import * as productActions from '../../../actions/productActions';
 import './styles.css';
 
 const CARD_OPTIONS = {

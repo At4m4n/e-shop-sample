@@ -1,4 +1,4 @@
-import {ACTION_TYPE_DELIMITER, STATE} from "./store/constants/commonConstants";
+import {ACTION_TYPE_DELIMITER, STATE} from "../constants/actionConstants";
 
 export function createRequestSuccessFailure(action, entity) {
   return {

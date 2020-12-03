@@ -10,3 +10,6 @@ spring:
     open-in-view: false
   stripe:
     secret: ${STRIPE_SECRET_KEY}
+logging:
+  level:
+    com.itechartgroup.eshopsample: info

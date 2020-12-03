@@ -1,5 +1,5 @@
-import {ACTION} from '../../constants/commonConstants';
-import {createRequestSuccessFailure} from '../../../utils';
+import {ACTION} from '../../constants/actionConstants';
+import {createRequestSuccessFailure} from '../../utils/utils';
 
 const deepFreeze = require('deep-freeze');
 const PRODUCT = 'PRODUCT';

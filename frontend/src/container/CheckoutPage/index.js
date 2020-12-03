@@ -3,7 +3,7 @@ import MainLayoutWrapper from '../MainLayoutWrapper';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm/index';
-import { PUBLIC_STRIPE_API_KEY } from '../../constants';
+import { PUBLIC_STRIPE_API_KEY } from '../../constants/apiConstants';
 
 const stripePromise = loadStripe(PUBLIC_STRIPE_API_KEY);
 

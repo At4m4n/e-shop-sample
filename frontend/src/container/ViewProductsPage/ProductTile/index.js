@@ -4,9 +4,9 @@ import { PropTypes } from 'prop-types';
 import './styles.css';
 import { HOST_ADDRESS } from '../../../api/apiEndpoints';
 import history from '../../../history';
-import { CHECKOUT_PATH } from '../../../constants';
+import { CHECKOUT_PATH } from '../../../constants/apiConstants';
 import { connect } from 'react-redux';
-import { FIND_PRODUCT_BY_ID } from '../../../store/actions/types/productActionTypes';
+import { FIND_PRODUCT_BY_ID } from '../../../actions/types/productActionTypes';
 
 function ProductTile(props) {
   const { product } = props;
