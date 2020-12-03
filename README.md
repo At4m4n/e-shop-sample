@@ -10,5 +10,6 @@ Used technologies:
 #### Frontend:
  * ReactJS
  * React Bootstrap 
+ * Redux
 
 Both modules contain README.md file with launch instructions.

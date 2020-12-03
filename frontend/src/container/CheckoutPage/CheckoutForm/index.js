@@ -52,6 +52,7 @@ const CheckoutForm = (props) => {
   const elements = useElements();
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
+  const [addressDetails, setAddressDetails] = useState(null);
   const [processing, setProcessing] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -70,7 +71,7 @@ const CheckoutForm = (props) => {
       setProcessing(true);
     }
 
-    const payload = await stripe.createToken(elements.getElement(CardElement));
+    const payload = await stripe.createToken(elements.getElement(CardElement), addressDetails);
 
     if (payload.error) {
       setError(payload.error);
@@ -91,6 +92,9 @@ const CheckoutForm = (props) => {
           placeholder={'Address'}
           required={'required'}
           autoComplete={'autoComplete'}
+          onChange={(e) => {
+            setAddressDetails({...addressDetails, address_line1: e.target.value})
+          }}
         />
         <fieldset className={'FormGroup'}>
           <div className="FormRow">
@@ -102,6 +106,9 @@ const CheckoutForm = (props) => {
               required={'required'}
               autoComplete={'autoComplete'}
               maxLength={20}
+              onChange={(e) => {
+                setAddressDetails({...addressDetails, address_city: e.target.value})
+              }}
             />
             <input
               className="FormRowInput"
@@ -111,6 +118,9 @@ const CheckoutForm = (props) => {
               required={'required'}
               autoComplete={'autoComplete'}
               maxLength={20}
+              onChange={(e) => {
+                setAddressDetails({...addressDetails, address_state: e.target.value})
+              }}
             />
             <input
               className="FormRowInput"
@@ -120,6 +130,9 @@ const CheckoutForm = (props) => {
               required={'required'}
               autoComplete={'autoComplete'}
               maxLength={5}
+              onChange={(e) => {
+                setAddressDetails({...addressDetails, address_zip: e.target.value})
+              }}
             />
           </div>
         </fieldset>
