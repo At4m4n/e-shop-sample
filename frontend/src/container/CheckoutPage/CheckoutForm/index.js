@@ -77,7 +77,14 @@ const CheckoutForm = (props) => {
       setError(payload.error);
     }
     else {
-      props.charge({token: payload.token.id, amount: props.product.price});
+      props.charge({
+        token: payload.token.id,
+        amount: props.product.price,
+        address: addressDetails.address_line1,
+        city: addressDetails.address_city,
+        state: addressDetails.address_state,
+        zip: addressDetails.address_zip,
+      });
       setProcessing(false);
     }
   };
