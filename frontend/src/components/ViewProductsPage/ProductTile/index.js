@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
-import './styles.css';
+import { useHistory } from 'react-router-dom';
 import { HOST_ADDRESS } from '../../../api/apiEndpoints';
-import history from '../../../history';
 import { CHECKOUT_PATH } from '../../../constants/apiConstants';
 import { connect } from 'react-redux';
 import { FIND_PRODUCT_BY_ID } from '../../../actions/types/productActionTypes';
+import './styles.css';
 
 function ProductTile(props) {
   const { product } = props;
+  const history = useHistory();
   return (
     <Card className={'mb-3'} id={'card-container'}>
       <Card.Img variant={'top'}

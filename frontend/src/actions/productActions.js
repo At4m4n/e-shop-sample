@@ -1,10 +1,9 @@
-import composeSimpleApiCallingAction
-  from './actionsUtil/composeSimpleApiCallingAction';
-import {ProductActionTypes} from "./types/productActionTypes";
+import composeSimpleApiCallingAction from './actionsUtil/composeSimpleApiCallingAction';
+import { ProductActionTypes } from './types/productActionTypes';
 import { chargeApiRequests, productsApiRequests } from '../api/apiRequests';
 import { createAction } from './actionsUtil/actionCreator';
 import { SUCCESS_PATH } from '../constants/apiConstants';
-import history from '../history';
+import { history } from '../index'
 
 export const fetchProducts = composeSimpleApiCallingAction(
     ProductActionTypes.fetch.request,

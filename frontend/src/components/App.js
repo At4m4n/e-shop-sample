@@ -1,13 +1,13 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { CHECKOUT_PATH, PRODUCT_PATH, SUCCESS_PATH } from './constants/apiConstants';
-import CheckoutPage from './container/CheckoutPage';
-import PurchaseSuccessPage from './container/SuccessPage';
-import ViewProductsPage from './container/ViewProductsPage';
+import { CHECKOUT_PATH, PRODUCT_PATH, SUCCESS_PATH } from '../constants/apiConstants';
+import CheckoutPage from './CheckoutPage';
+import PurchaseSuccessPage from './SuccessPage';
+import ViewProductsPage from './ViewProductsPage';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { selectCurrentProduct } from './selectors/productSelectors';
+import { selectCurrentProduct } from '../selectors/productSelectors';
 import { createStructuredSelector } from 'reselect';
 
 function App(props) {

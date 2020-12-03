@@ -3,6 +3,7 @@ Used technologies:
 
 #### Backend:
  * Java 8
+ * Spring Framework
  * Spring Boot 2
  * MySQL
  * Stripe API
