@@ -25,9 +25,8 @@ function ProductTile(props) {
       <Card.Footer>
         <Button onClick={() => {
           props.getProductById(product.id)
-          history.push(CHECKOUT_PATH)
-        }} variant="primary"
-                className={'stick-bottom'}>Purchase</Button>
+          history.push(CHECKOUT_PATH.replace(':id', product.id))
+        }} variant="primary" className={'stick-bottom'}>Purchase</Button>
       </Card.Footer>
     </Card>
   );

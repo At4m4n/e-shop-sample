@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { CHECKOUT_PATH, PRODUCTS_PATH, SUCCESS_PATH } from './constants/apiConstants';
+import { CHECKOUT_PATH, PRODUCT_PATH, SUCCESS_PATH } from './constants/apiConstants';
 import CheckoutPage from './container/CheckoutPage';
 import PurchaseSuccessPage from './container/SuccessPage';
 import ViewProductsPage from './container/ViewProductsPage';
@@ -15,12 +15,12 @@ function App(props) {
   return (
     <>
       <Switch>
-        <Route exact path={PRODUCTS_PATH} component={ViewProductsPage}/>
+        <Route exact path={PRODUCT_PATH} component={ViewProductsPage}/>
         {product !== null && (<>
           <Route exact path={CHECKOUT_PATH} component={CheckoutPage}/>
           <Route exact path={SUCCESS_PATH} component={PurchaseSuccessPage}/>
         </>)}
-        {product === null && <Redirect to={PRODUCTS_PATH}/>}
+        {product === null && <Redirect to={PRODUCT_PATH}/>}
       </Switch>
     </>
   );

@@ -1,5 +1,5 @@
-export const PRODUCTS_PATH = '/products'
-export const CHECKOUT_PATH = '/checkout'
+export const PRODUCT_PATH = '/product'
+export const CHECKOUT_PATH = `${PRODUCT_PATH}/:id/checkout`
 export const SUCCESS_PATH = '/success'
 
 // eslint-disable-next-line max-len
