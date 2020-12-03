@@ -9,6 +9,7 @@ button {
   appearance: none;
   outline: none;
   border-style: none;
+  min-width: 0;
 }
 
 body {

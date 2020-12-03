@@ -91,7 +91,7 @@ const CheckoutForm = (props) => {
 
   return (
     <form className="Form" onSubmit={handleSubmit}>
-      <fieldset className="FormGroup">
+      <fieldset>
         <input
           className="FormRowInput"
           id={'address'}
@@ -103,7 +103,7 @@ const CheckoutForm = (props) => {
             setAddressDetails({...addressDetails, address_line1: e.target.value})
           }}
         />
-        <fieldset className={'FormGroup'}>
+        <fieldset>
           <div className="FormRow">
             <input
               className="FormRowInput"
