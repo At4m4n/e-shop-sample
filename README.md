@@ -14,3 +14,4 @@ Used technologies:
  * Redux
 
 Both modules contain README.md file with launch instructions.
+There is also second branch with ability to launch the app from a single jar as monolith.
